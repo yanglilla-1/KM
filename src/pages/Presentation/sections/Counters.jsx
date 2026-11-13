@@ -16,6 +16,7 @@ Coded by www.creative-tim.com
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import LocalPhoneRounded from "@mui/icons-material/LocalPhoneRounded";
 // import Divider from "@mui/material/Divider";
 
 // Material Kit 2 React components
@@ -51,6 +52,29 @@ function Counters() {
             <MKTypography sx={{ textAlign: "center" }} variant="h5">
               계명종합중기만의 현장 맞춤형 장비 투입
             </MKTypography>
+            <MKBox sx={{ textAlign: "center" }}>
+              <MKTypography
+                component="div"
+                sx={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 1,
+                  mt: 1,
+                  px: { xs: 2, sm: 3 },
+                  py: 1.5,
+                  borderRadius: 3,
+                  backgroundColor: "#edf5ff",
+                  color: "#1463c7",
+                  fontSize: { xs: "1.4rem", sm: "1.6rem" },
+                  fontWeight: 800,
+                  lineHeight: 1.3,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <LocalPhoneRounded sx={{ fontSize: "1.4rem" }} />
+                055-757-1087
+              </MKTypography>
+            </MKBox>
           </Grid>
 
           {/* 젊은 기사 강조 */}

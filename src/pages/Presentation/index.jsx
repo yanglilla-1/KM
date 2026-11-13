@@ -34,6 +34,7 @@ import Download from "pages/Presentation/sections/Download";
 
 // Presentation page components
 import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
+import OfficePhone from "pages/Presentation/components/OfficePhone";
 
 // Routes
 import routes from "routes";
@@ -58,13 +59,13 @@ function Presentation() {
       <MKBox
         sx={[
           {
-            minHeight: { xs: "auto", md: "90vh" },
+            minHeight: { xs: "auto", md: "calc(90vh - 50px)" },
             width: "100%",
             pt: { xs: 18, md: 0 },
             pb: { xs: 12, md: 0 },
           },
           {
-            backgroundImage: `url(${bgImage})`,
+            backgroundImage: `linear-gradient(rgba(12, 24, 38, 0.38), rgba(12, 24, 38, 0.48)), url(${bgImage})`,
             backgroundSize: "cover",
             backgroundPosition: "top",
             display: "grid",
@@ -105,6 +106,7 @@ function Presentation() {
               {"건설업무, 굴삭공사, 철거공사, 단가공사, 나대지정리, 등 임대문의"} <br />
               {"(굴삭기, 바브캣, 덤프트럭, 사다리차, 콤프레샤, 철근 절단기, 레이저 수평기)"}
             </MKTypography>
+            <OfficePhone />
           </Grid>
         </Container>
       </MKBox>
