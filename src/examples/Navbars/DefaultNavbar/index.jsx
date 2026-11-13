@@ -43,6 +43,7 @@ import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMob
 
 // Material Kit 2 React base styles
 import breakpoints from "assets/theme/base/breakpoints";
+import companyLogo from "assets/images/logo_km.png";
 
 function DefaultNavbar({
   brand = "계명종합중기",
@@ -504,11 +505,14 @@ function DefaultNavbar({
         ]}
       >
         <MKBox
-          sx={{ display: "flex", gap: 1, justifyContent: "space-between", alignItems: "center" }}
+          sx={{ display: "flex", flexWrap: "wrap", gap: 1, justifyContent: "space-between", alignItems: "center" }}
         >
           <MKBox
             sx={{
               lineHeight: 1,
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
               py: transparent ? 1.5 : 0.75,
               pl: relative || transparent ? 0 : { xs: 0, lg: 1 },
             }}
@@ -523,9 +527,17 @@ function DefaultNavbar({
             <MKTypography
               variant="button"
               fontWeight="bold"
-              sx={{ whiteSpace: "nowrap" }}
+              sx={{ whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: 1 }}
               color={light ? "white" : "dark"}
             >
+              <MKBox
+                component="img"
+                src={companyLogo}
+                alt=""
+                width={32}
+                height={32}
+                sx={{ width: { xs: 28, sm: 32 }, height: { xs: 28, sm: 32 }, objectFit: "contain", flexShrink: 0 }}
+              />
               {brand}
             </MKTypography>
           </MKBox>

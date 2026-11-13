@@ -1,9 +1,7 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import PhoneIcon from "@mui/icons-material/Phone";
-import HomeIcon from "@mui/icons-material/Home";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
@@ -18,11 +16,14 @@ const TEL_URI = "tel:01038480591";
 const LINKTREE = "https://www.kmheavy.kr";
 
 export default function TelPage() {
+  const [isMobile] = useState(
+    () => typeof navigator !== "undefined" && /iPhone|iPad|iPod|Android|Mobi/i.test(navigator.userAgent)
+  );
   useEffect(() => {
     document.title = "계명종합중기 전화걸기";
 
     // 모바일 브라우저에서만 전화 앱 열기
-    const isMobile = /iPhone|iPad|iPod|Android|Mobi/i.test(navigator.userAgent);
+
     let timerId;
     if (isMobile) {
       // 바로 전화 시도 후 3초 뒤 링크 이동
@@ -32,7 +33,7 @@ export default function TelPage() {
       }, 3000);
     }
     return () => timerId && clearTimeout(timerId);
-  }, []);
+  }, [isMobile]);
 
   return (
     <MKBox
@@ -57,52 +58,57 @@ export default function TelPage() {
           <MKTypography variant="body1" color="text" sx={{ mb: 3 }}>
             계명종합중기 장비 임대 및 작업 문의
           </MKTypography>
-          <MKTypography
-            component="a"
-            href={TEL_URI}
-            color="info"
-            fontWeight="bold"
-            sx={{
-              display: "inline-block",
-              fontSize: { xs: "1.75rem", sm: "2.5rem" },
-              whiteSpace: "nowrap",
-              mb: 2,
-            }}
-          >
-            {PHONE_DISPLAY}
-          </MKTypography>
-          <MKTypography variant="body2" color="text" sx={{ mb: 3, wordBreak: "keep-all" }}>
-            자동으로 전화 연결이 되지 않을 경우 아래 버튼을 눌러 주세요.
-          </MKTypography>
-          <MKBox
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
-              gap: 1.5,
-              justifyContent: "center",
-            }}
-          >
-            <MKButton
-              component="a"
-              href={TEL_URI}
-              variant="gradient"
-              color="info"
-              size="large"
-              startIcon={<PhoneIcon />}
-            >
-              전화 걸기
-            </MKButton>
-            <MKButton
-              component={Link}
-              to="/presentation"
-              variant="outlined"
-              color="info"
-              size="large"
-              startIcon={<HomeIcon />}
-            >
-              홈페이지 열기
-            </MKButton>
+          <MKBox sx={{ display: "grid", gap: 2, width: "100%", maxWidth: 360, mx: "auto", mb: 3 }}>
+            {[
+              { label: "견적전화 · 휴대폰", number: PHONE_DISPLAY, href: TEL_URI },
+              { label: "사무실 전화", number: "055-757-1087", href: "tel:0557571087" },
+            ].map(({ label, number, href }) => (
+              <MKButton
+                key={href}
+                component="a"
+                href={href}
+                variant="outlined"
+                color="info"
+                aria-label={`${label} ${number} 전화하기`}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 0.75,
+                  px: 1.5,
+                  py: 2,
+                  borderRadius: 3,
+                  backgroundColor: "#edf5ff",
+                  borderColor: "#c9dfff",
+                  textTransform: "none",
+                  "&:hover": { backgroundColor: "#dcecff", borderColor: "#2185f5" },
+                  "&:focus-visible": { outline: "3px solid #2185f5", outlineOffset: 3 },
+                }}
+              >
+                <MKTypography component="span" variant="body2" color="text">
+                  {label}
+                </MKTypography>
+                <MKBox component="span" sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <PhoneIcon sx={{ fontSize: "1.35rem" }} />
+                  <MKTypography
+                    component="span"
+                    color="info"
+                    fontWeight="bold"
+                    sx={{ fontSize: { xs: "1.35rem", sm: "1.8rem" }, whiteSpace: "nowrap" }}
+                  >
+                    {number}
+                  </MKTypography>
+                </MKBox>
+              </MKButton>
+            ))}
           </MKBox>
+          <MKTypography variant="body2" color="text" sx={{ mb: 3, wordBreak: "keep-all" }}>
+            <MKBox component="span" sx={{ display: { xs: "inline", md: "none" } }}>
+              자동으로 전화 연결이 되지 않을 경우 위 버튼을 눌러 주세요.
+            </MKBox>
+            <MKBox component="span" sx={{ display: { xs: "none", md: "inline" } }}>
+              컴퓨터 사용자는 직접 전화 부탁드립니다.
+            </MKBox>
+          </MKTypography>
           <MKBox
             component="a"
             href={LINKTREE}
