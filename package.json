@@ -1,0 +1,49 @@
+{
+  "name": "material-kit-2-react",
+  "version": "2.1.0",
+  "private": true,
+  "author": "Creative Tim",
+  "license": "See license in https://www.creative-tim.com/license",
+  "description": "React version of Material Kit 2 by Creative Tim",
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/ct-material-kit-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativetimofficial/ct-material-kit-react.git"
+  },
+  "dependencies": {
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/icons-material": "9.5.0",
+    "@mui/material": "9.5.0",
+    "chroma-js": "3.3.0",
+    "prop-types": "15.8.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router-dom": "7.18.5"
+  },
+  "scripts": {
+    "start": "vite --host 127.0.0.1 --port 3000",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest",
+    "lint": "eslint src",
+    "prettify": "prettier --write ."
+  },
+  "devDependencies": {
+    "eslint": "9.39.5",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-react": "7.37.5",
+    "prettier": "3.10.1",
+    "vite": "8.3.8",
+    "@vitejs/plugin-react": "6.3.0",
+    "vitest": "5.1.0",
+    "@eslint/js": "9.39.5",
+    "globals": "17.14.0"
+  },
+  "engines": {
+    "node": ">=22.13.0",
+    "npm": ">=10"
+  }
+}
