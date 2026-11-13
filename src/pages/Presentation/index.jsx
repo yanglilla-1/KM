@@ -136,8 +136,9 @@ function Presentation() {
                 icon="call"
                 title="전화"
                 description={
-                  <MKTypography color="" sx={{ opacity: 0.8, fontSize: "1.125rem" }}>
-                    010-3848-0591
+                  <MKTypography color="" sx={{ opacity: 0.9, fontSize: "1.125rem" }}>
+                    010-3848-0591 <br />
+                    055-757-1087
                   </MKTypography>
                 }
                 action={{
@@ -153,7 +154,8 @@ function Presentation() {
                 icon="info"
                 title="회사"
                 description={
-                  <MKTypography color="text" sx={{ opacity: 1.0, fontSize: "1.125rem" }}>
+                  <MKTypography color="text" sx={{ opacity: 0.9, fontSize: "1.125rem" }}>
+                    계명종합중기 <br />
                     장비 / 회사 소개
                   </MKTypography>
                 }
@@ -171,7 +173,7 @@ function Presentation() {
                 icon="map"
                 title="위치"
                 description={
-                  <MKTypography color="" sx={{ opacity: 0.8, fontSize: "1.125rem" }}>
+                  <MKTypography color="" sx={{ opacity: 0.9, fontSize: "1.125rem" }}>
                     진주시 도동천로276 현대이파트 상가 3층 301호
                   </MKTypography>
                 }
