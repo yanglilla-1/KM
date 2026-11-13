@@ -34,19 +34,19 @@ function DefaultFooter({ content }) {
     <MKBox
       component="footer"
       sx={{
-        py: { xs: 4, md: 5 },
+        py: { xs: 2.5, md: 3 },
         bgcolor: "background.paper",
         borderTop: "1px solid",
         borderColor: "grey.200",
       }}
     >
       <Container>
-        <Grid container spacing={3}>
-          <Grid size={{ xs: 12, md: 4 }} sx={{ mb: 1 }}>
+        <Grid container columnSpacing={3} rowSpacing={1.5}>
+          <Grid size={{ xs: 12, md: 4 }} sx={{ mb: 0 }}>
             <MKBox>
               <Link to={brand.route || "/presentation"}>
                 <MKBox
-                  sx={{ width: "3rem", mb: 2 }}
+                  sx={{ width: "3rem", mb: 1 }}
                   component="img"
                   src={brand.image}
                   alt={brand.name}
@@ -54,7 +54,7 @@ function DefaultFooter({ content }) {
               </Link>
               <MKTypography variant="h6">{brand.name}</MKTypography>
             </MKBox>
-            <MKBox sx={{ display: "flex", alignItems: "center", mt: 3 }}>
+            <MKBox sx={{ display: "flex", alignItems: "center", mt: socials.length ? 1.5 : 0 }}>
               {socials.map(({ icon, link }, key) => (
                 <MKTypography
                   sx={{ mr: key === socials.length - 1 ? 0 : 2.5 }}
@@ -73,9 +73,9 @@ function DefaultFooter({ content }) {
             </MKBox>
           </Grid>
           {menus.map(({ name: title, items }) => (
-            <Grid size={{ xs: 12, sm: 6, md: 2 }} key={title} sx={{ mb: 1, minWidth: 0 }}>
+            <Grid size={{ xs: 12, sm: 6, md: 2 }} key={title} sx={{ mb: 0, minWidth: 0 }}>
               <MKTypography
-                sx={{ display: "block", mb: 1 }}
+                sx={{ display: "block", mb: 0.5 }}
 
                 variant="button"
                 fontWeight="bold"
@@ -86,7 +86,7 @@ function DefaultFooter({ content }) {
               <MKBox component="ul" sx={[{ p: 0, m: 0 }, { listStyle: "none" }]}>
                 {items.map(({ name, route, href }) => (
                   <MKBox
-                    sx={{ p: 0, m: 0, mb: 0.75, lineHeight: 1.7, overflowWrap: "anywhere" }}
+                    sx={{ p: 0, m: 0, mb: 0.25, lineHeight: 1.5, overflowWrap: "anywhere" }}
                     key={name}
                     component="li"
                   >
@@ -125,8 +125,8 @@ function DefaultFooter({ content }) {
           <Grid
             size={{ xs: 12 }}
             sx={{
-              pt: 3,
-              mt: 1,
+              pt: 1.5,
+              mt: 0.5,
               borderTop: "1px solid",
               borderColor: "grey.200",
               textAlign: { xs: "left", md: "center" },

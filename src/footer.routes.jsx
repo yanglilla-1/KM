@@ -18,7 +18,10 @@ export default {
     },
     {
       name: "전화번호",
-      items: [{ name: "010-3848-0591", route: "/tel" }],
+      items: [
+        { name: "010-3848-0591", route: "/tel" },
+        { name: "055-757-1087", route: "/tel" },
+      ],
     },
     {
       name: "사업자번호",
