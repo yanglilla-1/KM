@@ -21,6 +21,7 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 import { Link } from "react-router-dom";
+import NavigationButtons from "./NavigationButtons";
 
 function Information() {
   return (
@@ -73,6 +74,7 @@ function Information() {
                   </MKTypography>
                 </MKBox>
 
+                <NavigationButtons />
                 <MKBox
                   sx={{
                     mt: 3,
